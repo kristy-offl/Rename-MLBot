@@ -60,7 +60,7 @@ async def file(c, m):
     else:
        await c.send_message(chat_id=m.chat.id, text=Translation.REPLY_TEXT)
  
-@Clinton.on_message(filters.command(["rename"]))
+@Client.on_message(filters.command(["rename"]))
 async def rename_doc(bot, update):
 
     update_channel = Config.UPDATE_CHANNEL
