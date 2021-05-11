@@ -63,7 +63,8 @@ ETA 🕰: {4}
 
 ##############################################################################################################################
 ##############################################################################################################################
-
+     
+    RENAMED_SUCCESS = "<b>File Downloaded Successfully 😃</b>"
       DOWNLOAD_START = "Trying to Download 📥"
       DOWNLOAD_COMPLETE = "✅ Media Downloaded successfully\nPreparing for upload"
       UPLOAD_START = "Trying to Upload 📤"
