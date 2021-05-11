@@ -59,3 +59,24 @@ async def file(c, m):
       await download(c, m)
     else:
        await c.send_message(chat_id=m.chat.id, text=Translation.REPLY_TEXT)
+        
+        @Clinton.on_message(filters.command(["rename"]))
+async def rename_doc(bot, update):
+
+    update_channel = Config.UPDATE_CHANNEL
+    if update_channel:
+        try:
+            user = await bot.get_chat_member(update_channel, update.chat.id)
+            if user.status == "kicked":
+               await update.reply_text(Scripted.ACCESS_DENIED)
+               return
+        except UserNotParticipant:
+            await update.reply_text(text=Scripted.JOIN_NOW_TEXT,
+                  reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton(text="ᴊᴏɪɴ ɴᴏᴡ 🔓", url=f"https://t.me/{Config.UPDATE_CHANNEL}") ]
+                ] 
+              )
+            )
+            return
+        except Exception:
+            await update.reply_text(Scripted.CONTACT_MY_DEVELOPER)
+            return
